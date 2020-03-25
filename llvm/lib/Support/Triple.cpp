@@ -41,6 +41,7 @@ StringRef Triple::getArchTypeName(ArchType Kind) {
   case lanai:          return "lanai";
   case le32:           return "le32";
   case le64:           return "le64";
+  case mblaze:         return "mblaze";
   case mips64:         return "mips64";
   case mips64el:       return "mips64el";
   case mips:           return "mips";
@@ -99,6 +100,8 @@ StringRef Triple::getArchTypePrefix(ArchType Kind) {
   case ppc64:
   case ppc64le:
   case ppc:         return "ppc";
+
+  case mblaze:  return "mblaze";
 
   case mips:
   case mipsel:
@@ -285,6 +288,7 @@ Triple::ArchType Triple::getArchTypeForLLVMName(StringRef Name) {
     .Case("ppc32", ppc)
     .Case("ppc", ppc)
     .Case("ppc64le", ppc64le)
+    .Case("mblaze", mblaze)
     .Case("r600", r600)
     .Case("amdgcn", amdgcn)
     .Case("riscv32", riscv32)
@@ -409,6 +413,7 @@ static Triple::ArchType parseArch(StringRef ArchName) {
     .Case("thumb", Triple::thumb)
     .Case("thumbeb", Triple::thumbeb)
     .Case("avr", Triple::avr)
+    .Case("mblaze", Triple::mblaze)
     .Case("msp430", Triple::msp430)
     .Cases("mips", "mipseb", "mipsallegrex", "mipsisa32r6",
            "mipsr6", Triple::mips)
@@ -683,6 +688,7 @@ static Triple::ObjectFormatType getDefaultFormat(const Triple &T) {
   case Triple::lanai:
   case Triple::le32:
   case Triple::le64:
+  case Triple::mblaze:
   case Triple::mips64:
   case Triple::mips64el:
   case Triple::mips:
@@ -1249,6 +1255,7 @@ static unsigned getArchPointerBitWidth(llvm::Triple::ArchType Arch) {
   case llvm::Triple::kalimba:
   case llvm::Triple::lanai:
   case llvm::Triple::le32:
+  case llvm::Triple::mblaze:
   case llvm::Triple::mips:
   case llvm::Triple::mipsel:
   case llvm::Triple::nvptx:
@@ -1332,6 +1339,7 @@ Triple Triple::get32BitArchVariant() const {
   case Triple::kalimba:
   case Triple::lanai:
   case Triple::le32:
+  case Triple::mblaze:
   case Triple::mips:
   case Triple::mipsel:
   case Triple::nvptx:
@@ -1381,6 +1389,7 @@ Triple Triple::get64BitArchVariant() const {
   case Triple::hexagon:
   case Triple::kalimba:
   case Triple::lanai:
+  case Triple::mblaze:
   case Triple::msp430:
   case Triple::r600:
   case Triple::shave:

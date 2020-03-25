@@ -294,6 +294,7 @@ set(LLVM_ALL_TARGETS
   Hexagon
   Lanai
   Mips
+  MBlaze
   MSP430
   NVPTX
   PowerPC
