@@ -14,7 +14,6 @@
 #include "MBlazeMCTargetDesc.h"
 #include "InstPrinter/MBlazeInstPrinter.h"
 #include "MBlazeMCAsmInfo.h"
-#include "llvm/MC/MCCodeGenInfo.h"
 #include "llvm/MC/MCSymbolELF.h"
 #include "llvm/MC/MCRegisterInfo.h"
 #include "llvm/MC/MCStreamer.h"
@@ -55,18 +54,6 @@ static MCSubtargetInfo *createMBlazeMCSubtargetInfo(StringRef TT, StringRef CPU,
 
 static MCAsmInfo *createMCAsmInfo(const MCRegisterInfo &MRI, StringRef TT) {
   return new MBlazeMCAsmInfo();
-}
-
-static MCCodeGenInfo *createMBlazeMCCodeGenInfo(StringRef TT, Reloc::Model RM,
-                                                CodeModel::Model CM,
-                                                CodeGenOpt::Level OL) {
-  MCCodeGenInfo *X = new MCCodeGenInfo();
-  if (RM == Reloc::Default)
-    RM = Reloc::Static;
-  if (CM == CodeModel::Default)
-    CM = CodeModel::Small;
-  X->InitMCCodeGenInfo(RM, CM, OL);
-  return X;
 }
 
 static MCStreamer *createMCStreamer(const Target &T, StringRef TT,
