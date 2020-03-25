@@ -16,7 +16,7 @@
 #define MBLAZEREGISTERINFO_H
 
 #include "MBlaze.h"
-#include "llvm/Target/TargetRegisterInfo.h"
+#include "llvm/CodeGen/TargetRegisterInfo.h"
 
 #define GET_REGINFO_HEADER
 #include "MBlazeGenRegisterInfo.inc"

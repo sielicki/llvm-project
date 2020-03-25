@@ -15,7 +15,7 @@
 #define MBLAZE_FRAMEINFO_H
 
 #include "MBlaze.h"
-#include "llvm/Target/TargetFrameLowering.h"
+#include "llvm/CodeGen/TargetFrameLowering.h"
 
 namespace llvm {
 class MBlazeSubtarget;

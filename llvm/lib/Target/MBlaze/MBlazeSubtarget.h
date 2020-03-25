@@ -15,7 +15,7 @@
 #define MBLAZESUBTARGET_H
 
 #include "llvm/MC/MCInstrItineraries.h"
-#include "llvm/Target/TargetSubtargetInfo.h"
+#include "llvm/CodeGen/TargetSubtargetInfo.h"
 #include <string>
 
 #define GET_SUBTARGETINFO_HEADER
